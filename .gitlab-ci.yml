@@ -5,7 +5,10 @@ build:
   stage: build
   tags:
     - k8s
-    - hookandloop-c5
+    - dsa-runner
+  variables:
+    KUBERNETES_CPU_REQUEST: 14
+    KUBERNETES_CPU_LIMIT: 14
   image: node:20
   script:
     - npm ci
