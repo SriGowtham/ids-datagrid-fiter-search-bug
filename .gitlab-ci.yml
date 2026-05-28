@@ -11,11 +11,7 @@ variables:
   DS_STATIC_REACHABILITY_ENABLED: "true"
   DS_SKIP_IF_NO_SUPPORTED_FILES: "true"
 
-semgrep-sast:
-  stage: security
-  tags:
-    - k8s
-    - dsa-runner
+
 
 dependency-scanning:
   stage: security
