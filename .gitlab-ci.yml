@@ -3,7 +3,6 @@ include:
   - template: Jobs/Dependency-Scanning.v2.gitlab-ci.yml
 
 stages:
-  - test
   - security
   - build
 
@@ -12,7 +11,13 @@ variables:
   DS_STATIC_REACHABILITY_ENABLED: "true"
   DS_SKIP_IF_NO_SUPPORTED_FILES: "true"
 
-
+gitlab-advanced-sast:
+  stage: security
+  tags:
+    - k8s
+    - dsa-runner
+  variables:
+    GITLAB_ADV_SAST_INCR_SCAN: "true"
 
 dependency-scanning:
   stage: security
