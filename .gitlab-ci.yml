@@ -3,6 +3,7 @@ include:
   - template: Jobs/Dependency-Scanning.v2.gitlab-ci.yml
 
 stages:
+  - test
   - security
   - build
 
