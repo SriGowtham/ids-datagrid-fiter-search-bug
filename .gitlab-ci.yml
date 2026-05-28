@@ -3,7 +3,7 @@ include:
   - template: Jobs/Dependency-Scanning.v2.gitlab-ci.yml
 
 stages:
-  - security
+  - test
   - build
 
 variables:
@@ -12,7 +12,7 @@ variables:
   DS_SKIP_IF_NO_SUPPORTED_FILES: "true"
 
 gitlab-advanced-sast:
-  stage: security
+  stage: test
   tags:
     - k8s
     - dsa-runner
@@ -20,7 +20,7 @@ gitlab-advanced-sast:
     GITLAB_ADV_SAST_INCR_SCAN: "true"
 
 dependency-scanning:
-  stage: security
+  stage: test
   tags:
     - k8s
     - dsa-runner
