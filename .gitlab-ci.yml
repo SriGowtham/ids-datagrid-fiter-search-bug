@@ -11,13 +11,11 @@ variables:
   DS_STATIC_REACHABILITY_ENABLED: "true"
   DS_SKIP_IF_NO_SUPPORTED_FILES: "true"
 
-gitlab-advanced-sast:
+semgrep-sast:
   stage: security
   tags:
     - k8s
     - dsa-runner
-  variables:
-    GITLAB_ADV_SAST_INCR_SCAN: "true"
 
 dependency-scanning:
   stage: security
