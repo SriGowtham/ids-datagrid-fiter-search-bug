@@ -2,6 +2,7 @@ include:
   - template: Jobs/SAST.gitlab-ci.yml
   - template: Jobs/Dependency-Scanning.v2.gitlab-ci.yml
   - template: Jobs/Secret-Detection.gitlab-ci.yml
+  - template: Jobs/SAST-IaC.gitlab-ci.yml
 
 stages:
   - test
@@ -27,6 +28,12 @@ dependency-scanning:
     - dsa-runner
 
 secret_detection:
+  stage: test
+  tags:
+    - k8s
+    - dsa-runner
+
+kics-iac-sast:
   stage: test
   tags:
     - k8s
