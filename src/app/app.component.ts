@@ -69,7 +69,7 @@ export class AppComponent implements AfterViewInit {
     this.renderLoop.start();
   }
 
-  public model = {
+  public model: { displayMode: SohoModuleNavDisplayMode; selectedRole: string; roles: Array<SohoModuleNavSwitcherRoleRecord> } = {
     displayMode: 'collapsed',
     selectedRole: 'admin',
     roles: defaultRoles
