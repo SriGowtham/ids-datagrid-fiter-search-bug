@@ -20,6 +20,7 @@ import {
 } from 'ids-enterprise-ng';
 import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
+import { AuthorizationReproComponent } from './authorization/authorization-repro.component';
 
 const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
   { text: 'Admin', value: 'admin', icon: 'app-ac' },
@@ -32,7 +33,7 @@ const defaultRoles: Array<SohoModuleNavSwitcherRoleRecord> = [
 ];
 
 @Component({
-  imports: [ HeaderComponent, SohoComponentsModule, CommonModule ],
+  imports: [HeaderComponent, SohoComponentsModule, CommonModule, AuthorizationReproComponent],
   selector: 'body', // eslint-disable-line
   templateUrl: 'app.component.html',
   styleUrls: ['./app.component.css'],

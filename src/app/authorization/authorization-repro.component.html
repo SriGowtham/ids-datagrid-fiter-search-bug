@@ -1,0 +1,107 @@
+<div class="osp-page-container scrollable">
+  <div class="row full-width">
+    <div class="twelve columns">
+      <div soho-busyindicator [blockUI]="true" [activated]="isBusy">
+
+        <!-- Soho Tabs Container -->
+        <div soho-tabs registerForEvents="activated" (activated)="onTabActivated($event)">
+          <div soho-tab-list-container>
+            <ul soho-tab-list>
+              <li soho-tab>
+                <a soho-tab-title tabId="rpa-auth-apps">{{ appLanguage.applications }}</a>
+              </li>
+              <li soho-tab>
+                <a soho-tab-title tabId="rpa-auth-users">{{ appLanguage.user }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div soho-tab-panel-container>
+          <!-- Tab 1: Applications -->
+          <div soho-tab-panel tabId="rpa-auth-apps">
+            <div class="toolbar">
+              <div class="title">
+                <div soho-selection-count>
+                  <span class="datagrid-result-count">({{ appsData.length }} Applications)</span>
+                </div>
+              </div>
+              <div class="buttonset searchbar">
+                <input
+                  soho-searchfield
+                  placeholder="{{ appLanguage.keyword_placeholder }}"
+                  aria-label="Search"
+                  id="rpa-auth-apps-search"
+                  name="rpa-auth-apps-search"
+                  class="searchfield"
+                  soho-tooltip
+                  [title]="searchTooltipText"
+                />
+                <div class="separator"></div>
+                <button
+                  id="rpa-auth-app-refresh-btn"
+                  soho-button="tertiary"
+                  icon="refresh"
+                  data-action="refresh"
+                  [disabled]="isBusy"
+                  (click)="refresh('apps')"
+                ></button>
+              </div>
+            </div>
+
+            @if (datagridOptionsApps) {
+              <div
+                #appsGrid
+                soho-datagrid
+                id="rpa-auth-grid"
+                [gridOptions]="datagridOptionsApps"
+              ></div>
+            }
+          </div>
+
+          <!-- Tab 2: Users -->
+          <div soho-tab-panel tabId="rpa-auth-users">
+            <div class="toolbar">
+              <div class="title">
+                <div soho-selection-count>
+                  <span class="datagrid-result-count">({{ usersData.length }} Users)</span>
+                </div>
+              </div>
+              <div class="buttonset searchbar">
+                <input
+                  soho-searchfield
+                  placeholder="{{ appLanguage.keyword_placeholder }}"
+                  aria-label="Search"
+                  id="rpa-auth-users-search"
+                  name="rpa-auth-users-search"
+                  soho-tooltip
+                  [title]="searchTooltipText"
+                  class="searchfield"
+                />
+                <div class="separator"></div>
+                <button
+                  id="rpa-auth-users-refresh-btn"
+                  soho-button="tertiary"
+                  icon="refresh"
+                  data-action="refresh"
+                  [disabled]="isBusy"
+                  (click)="refresh('users')"
+                ></button>
+              </div>
+            </div>
+
+            @if (datagridOptionsUsers) {
+              <div
+                #usersGrid
+                soho-datagrid
+                id="rpa-auth-users-grid"
+                [gridOptions]="datagridOptionsUsers"
+              ></div>
+            }
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

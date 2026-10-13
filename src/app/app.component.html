@@ -158,6 +158,9 @@
   </soho-module-nav>
   <div class="page-container no-scroll has-module-nav-offset">
     <app-header #appHeader (hamburgerClick)="toggleModuleNavDisplayMode($event)"></app-header>
+     <div class="scrollable-content" style="overflow: auto; height: calc(100vh - 60px); padding: 0;">
+     <app-authorization-repro></app-authorization-repro>
+    </div>
 
     <!-- <div soho-tag-list (afterRemove)="afterRemove($event)">
     <span soho-tag>#Tagged</span>
